@@ -14,14 +14,14 @@ axes:
     steps_per_mm: 200.000
     max_rate_mm_per_min: 5000.000
     acceleration_mm_per_sec2: 200.000
-    max_travel_mm: 398.000
+    max_travel_mm: 438.000
     soft_limits: true
     homing:
       cycle: 2
       positive_direction: true
-      mpos_mm: 0.000
-      feed_mm_per_min: 200.000
-      seek_mm_per_min: 2000.000
+      mpos_mm: 0.00
+      feed_mm_per_min: 100.000
+      seek_mm_per_min: 300.000
       settle_ms: 500
       seek_scaler: 1.100
       feed_scaler: 1.100
@@ -31,7 +31,7 @@ axes:
       limit_pos_pin: gpio.33:high
       limit_all_pin: NO_PIN
       hard_limits: true
-      pulloff_mm: 1.000
+      pulloff_mm: 1.500
       standard_stepper:
         step_pin: I2SO.13
         direction_pin: I2SO.12:low
@@ -48,7 +48,7 @@ axes:
       positive_direction: true
       mpos_mm: 0.000
       feed_mm_per_min: 100.000
-      seek_mm_per_min: 2000.000
+      seek_mm_per_min: 500.000
       settle_ms: 500
       seek_scaler: 1.100
       feed_scaler: 1.100
@@ -85,9 +85,9 @@ axes:
     homing:
       cycle: 1
       positive_direction: true
-      mpos_mm: 0
+      mpos_mm: 0.0
       feed_mm_per_min: 200.000
-      seek_mm_per_min: 1000.000
+      seek_mm_per_min: 200.000
       settle_ms: 500
       seek_scaler: 1.100
       feed_scaler: 1.100
@@ -104,16 +104,18 @@ axes:
         disable_pin: I2SO.0
 
 probe:
-  pin: gpio.39
+  pin: gpio.39:low
   check_mode_start: true
 
+# CNC I/O Module 1
 uart1:
   txd_pin: gpio.26
   rxd_pin: gpio.16
-  rts_pin: gpio.4
+  rts_pin: NO_PIN
   baud: 9600
   mode: 8N1
 
+# CNC I/O Module 2
 uart2:
   rxd_pin: gpio.13
   txd_pin: gpio.14
@@ -145,18 +147,22 @@ user_outputs:
   analog1_hz: 5000
   analog2_hz: 5000
   analog3_hz: 5000
-  # Quad Mosfet Output board
-  digital0_pin: I2SO.24
-  digital1_pin: I2SO.25
-  digital2_pin: I2SO.26
-  digital3_pin: I2SO.27
+  # CNC I/O MOdule 3: Quad Mosfet Output board
+  digital0_pin: NO_PIN 
+  #I2SO.24
+  digital1_pin: NO_PIN 
+  #I2SO.25
+  digital2_pin: NO_PIN 
+  #I2SO.26
+  digital3_pin: NO_PIN 
+  #I2SO.27
 
 start:
   must_home: false
 
 Huanyang:
   uart_num: 1
-  modbus_id: 1
+  modbus_id: 1  
   tool_num: 0
   speed_map: 0=0% 0=25% 6000=25% 24000=100%
 
@@ -164,6 +170,9 @@ Huanyang:
 uart_channel1:
   uart_num: 2
   report_interval_ms: 75
+
+control:
+  safety_door_pin: NO_PIN
 
 macros:
   startup_line0:
