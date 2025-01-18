@@ -14,7 +14,7 @@ axes:
     steps_per_mm: 200.000
     max_rate_mm_per_min: 5000.000
     acceleration_mm_per_sec2: 200.000
-    max_travel_mm: 438.000
+    max_travel_mm: 440.000
     soft_limits: false
     homing:
       cycle: 2
@@ -41,7 +41,7 @@ axes:
     steps_per_mm: 200.000
     max_rate_mm_per_min: 5000.000
     acceleration_mm_per_sec2: 120.000
-    max_travel_mm: 594.000
+    max_travel_mm: 600.000
     soft_limits: false
     homing:
       cycle: 2
@@ -134,9 +134,9 @@ spi:
   mosi_pin: gpio.23
   sck_pin: gpio.18
 
-# sdcard:
-#   card_detect_pin: NO_PIN
-#   cs_pin: gpio.5
+sdcard:
+  card_detect_pin: NO_PIN
+  cs_pin: gpio.5
   
 user_outputs:
   analog0_pin: NO_PIN
@@ -166,8 +166,8 @@ Huanyang:
   tool_num: 0
   speed_map: 0=0% 0=25% 6000=25% 24000=100%
   off_on_alarm: false
-  spinup_ms: 8000
-  spindown_ms: 8000
+  spinup_ms: 7000
+  spindown_ms: 7000
 
 # pendant
 uart_channel1:
